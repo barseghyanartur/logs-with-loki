@@ -1,3 +1,4 @@
+import json
 import os
 import logging
 
@@ -81,10 +82,14 @@ class LogView(APIView):
 
     def get(self, request, format=None):
         """Current request."""
-        LOGGER.exception(request.data)
         LOGGER.warning(request.data)
         LOGGER.info(request.data)
         LOGGER.debug(request.data)
+        try:
+            json.dumps(APIView)
+        except Exception as err:
+            LOGGER.exception(err)
+
         return Response(request.data)
 
     post = get
