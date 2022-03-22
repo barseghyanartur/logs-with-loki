@@ -4,6 +4,10 @@ import logging
 
 from django_micro import configure, route, run
 
+# ************************************************************************
+# *************************** django settings ****************************
+# ************************************************************************
+
 DEBUG = True
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
