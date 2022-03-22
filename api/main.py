@@ -70,7 +70,6 @@ LOGGER = logging.getLogger(__name__)
 
 from django.contrib import admin
 from rest_framework.views import APIView
-from rest_framework.request import Request
 from rest_framework.response import Response
 from rest_framework import permissions
 
