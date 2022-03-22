@@ -16,7 +16,7 @@ cd logs-with-loki
 docker-compose up -d
 ```
 
-This will start Grafana, Loki, Promtail and a Sample demo app using [ealen/echo-server](https://hub.docker.com/r/ealen/echo-server).
+This will start Grafana, Loki, Promtail and a Sample demo app using [ealen/echo-server](https://hub.docker.com/r/ealen/echo-server) as well as a sample Django REST Framework app on port 8000 (http://localhost:8000/api/log/).
 
 
 ## Gettings the logs
