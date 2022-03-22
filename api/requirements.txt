@@ -1,0 +1,4 @@
+djangorestframework
+django-log-request-id
+python-json-logger
+django-micro

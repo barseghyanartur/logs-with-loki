@@ -7,7 +7,7 @@ x-logging: &loki-logging
 
 services:
   loki:
-    image: grafana/loki:2.2.1
+    image: grafana/loki:2.4.2
     ports:
       - "3100"
     volumes:
@@ -18,7 +18,7 @@ services:
     logging: *loki-logging  
 
   promtail:
-    image: grafana/promtail:2.2.1
+    image: grafana/promtail:2.4.2
     volumes:
       - ./config/loki/promtail-config.yaml:/mnt/config/promtail-config.yaml
       - /var/lib/docker/containers:/host/containers
@@ -47,6 +47,21 @@ services:
     networks:
       - loki
     logging: *loki-logging  
+
+  django-app:
+    container_name: django-app
+    build:
+      context: ./api
+      dockerfile: Dockerfile
+    ports:
+        - "8000:8000"
+    networks:
+      - loki
+    logging: *loki-logging
+    volumes:
+      - ./api:/usr/src/app
+      - ./api/entrypoint.sh:/entrypoint.sh
+    entrypoint: /entrypoint.sh runserver 0.0.0.0:8000 --traceback -v 3
 
 volumes:
   grafana-data: 
