@@ -38,6 +38,7 @@ services:
       - loki
     environment:
       GF_SECURITY_ADMIN_PASSWORD: testloki
+      GF_USERS_DEFAULT_THEME: light
     logging: *loki-logging    
 
   demo-app:
